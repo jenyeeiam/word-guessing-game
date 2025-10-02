@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Setup Screen -->
+        <div id="setupScreen" class="screen active">
+            <h1>Word Guessing Game</h1>
+            <div class="input-group">
+                <label for="secretWord">Secret Word or Phrase:</label>
+                <input type="text" id="secretWord" placeholder="Enter the secret word...">
+            </div>
+            <div class="input-group">
+                <label for="hints">Emoji Hints:</label>
+                <input type="text" id="hints" placeholder="🎃🌽🍂">
+            </div>
+            <button id="startRoundBtn" class="btn primary">Start Round</button>
+        </div>
+
+        <!-- Guessing Screen -->
+        <div id="guessingScreen" class="screen">
+            <div class="emoji-display" id="emojiDisplay"></div>
+            <div class="timer" id="timer">20</div>
+            <div id="letterHint" class="letter-hint"></div>
+            <div id="feedback" class="feedback"></div>
+            <div class="input-group">
+                <input type="text" id="guessInput" placeholder="Enter your guess...">
+                <button id="submitGuessBtn" class="btn primary">Submit Guess</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div id="resultMessage"></div>
+            <button id="playAgainBtn" class="btn primary">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

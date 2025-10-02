@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0d3b66 0%, #ee964b 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background: #faf0ca;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(13, 59, 102, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.screen {
+    padding: 40px 30px;
+    text-align: center;
+    display: none;
+    min-height: 500px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    font-size: 28px;
+    color: #0d3b66;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+label {
+    font-weight: 600;
+    color: #0d3b66;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    padding: 15px;
+    border: 2px solid #f4d35e;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    outline: none;
+    background: white;
+}
+
+input[type="text"]:focus {
+    border-color: #ee964b;
+    box-shadow: 0 0 0 3px rgba(238, 150, 75, 0.2);
+}
+
+.btn {
+    padding: 18px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    min-height: 56px;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #ee964b 0%, #f95738 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(238, 150, 75, 0.4);
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(238, 150, 75, 0.5);
+}
+
+.btn.primary:active {
+    transform: translateY(0);
+}
+
+.emoji-display {
+    font-size: 80px;
+    line-height: 1.2;
+    margin: 20px 0;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #f95738;
+    background: white;
+    border: 3px solid #f95738;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.timer.warning {
+    animation: pulse 1s infinite;
+    color: #f95738;
+    border-color: #f95738;
+    background: #ffeaea;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#resultMessage {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #0d3b66;
+    margin: 20px 0;
+}
+
+#resultMessage.correct {
+    color: #ee964b;
+}
+
+#resultMessage.incorrect {
+    color: #f95738;
+}
+
+.letter-hint {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0d3b66;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 2px solid #f4d35e;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.letter-hint.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feedback {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0d3b66;
+    margin: 10px 0;
+    min-height: 24px;
+    transition: all 0.3s ease;
+}
+
+.feedback.incorrect {
+    color: #f95738;
+}
+
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        border-radius: 15px;
+    }
+
+    .screen {
+        padding: 30px 20px;
+        min-height: 400px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .emoji-display {
+        font-size: 60px;
+        min-height: 80px;
+    }
+
+    .timer {
+        font-size: 36px;
+        width: 80px;
+        height: 80px;
+    }
+
+    input[type="text"] {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 15px 25px;
+        font-size: 16px;
+        min-height: 50px;
+    }
+}
