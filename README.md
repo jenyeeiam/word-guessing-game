@@ -10,15 +10,18 @@ A fun, mobile-friendly word guessing game where players guess words or phrases b
 2. Click "Start Round" to begin the game
 
 ### For the Guesser:
-1. **Guessing Screen**: You'll see the emoji clues and have 20 seconds to guess
+1. **Guessing Screen**: You'll see the emoji clues and have 60 seconds to guess
 2. Type your guess and click "Submit Guess" or press Enter
 3. Make as many guesses as you want until time runs out
 
 ## ⏰ Game Timer & Hints
 
-- **20 seconds**: Full time to guess
-- **10 seconds remaining**: First letter appears with word pattern (e.g., "P _ _ _ _ _ _   P _ _ _ _")
-- **5 seconds remaining**: Second letter appears (e.g., "P U _ _ _ _ _   P _ _ _ _")
+- **60 seconds**: Full time to guess
+- **50 seconds remaining**: First random letter appears with word pattern (e.g., "_ _ M _ _ _ _   _ _ T _ _")
+- **40 seconds remaining**: Second random letter appears (e.g., "_ U M _ _ _ _   _ _ T _ _")
+- **30 seconds remaining**: Third random letter appears
+- **20 seconds remaining**: Fourth random letter appears
+- **10 seconds remaining**: Fifth random letter appears
 - **Timer warning**: Red pulsing animation when under 5 seconds
 
 ## 🎯 Game Results
@@ -37,7 +40,7 @@ A fun, mobile-friendly word guessing game where players guess words or phrases b
 - **Mobile-Friendly**: Responsive design optimized for touch devices
 - **Multiple Guesses**: Keep trying until time runs out
 - **Instant Feedback**: Shows "❌ Incorrect! Try again..." for wrong guesses
-- **Progressive Hints**: Letter reveals at 10 and 5 seconds
+- **Progressive Hints**: Random letter reveals every 10 seconds (5 total hints)
 - **Smooth Animations**: Confetti celebrations and visual transitions
 - **Keyboard Support**: Enter key navigation throughout the game
 

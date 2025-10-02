@@ -2,11 +2,12 @@ class WordGuessingGame {
     constructor() {
         this.secretWord = '';
         this.hints = '';
-        this.timeLeft = 20;
+        this.timeLeft = 60;
         this.timerInterval = null;
         this.confettiCanvas = null;
         this.confettiCtx = null;
         this.confettiParticles = [];
+        this.revealedLetters = [];
 
         this.initializeElements();
         this.setupEventListeners();
@@ -95,7 +96,8 @@ class WordGuessingGame {
         this.guessInput.value = '';
         this.letterHint.textContent = '';
         this.feedback.textContent = '';
-        this.timeLeft = 20;
+        this.timeLeft = 60;
+        this.revealedLetters = [];
         this.updateTimer();
 
         this.showScreen(this.guessingScreen);
@@ -108,12 +110,12 @@ class WordGuessingGame {
             this.timeLeft--;
             this.updateTimer();
 
-            if (this.timeLeft === 10) {
-                this.showFirstLetterHint();
+            // Reveal letters every 10 seconds starting at 50s (10s elapsed)
+            if (this.timeLeft === 50 || this.timeLeft === 40 || this.timeLeft === 30 || this.timeLeft === 20 || this.timeLeft === 10) {
+                this.revealRandomLetter();
             }
 
-            if (this.timeLeft === 5) {
-                this.showSecondLetterHint();
+            if (this.timeLeft <= 5) {
                 this.timer.classList.add('warning');
             }
 
@@ -127,33 +129,42 @@ class WordGuessingGame {
         this.timer.textContent = this.timeLeft;
     }
 
-    showFirstLetterHint() {
-        const hint = this.createLetterHint(1);
-        this.letterHint.innerHTML = `💡 ${hint}`;
-        this.letterHint.className = 'letter-hint show';
+    revealRandomLetter() {
+        const word = this.secretWord.toLowerCase();
+        const availablePositions = [];
+
+        // Find all letter positions that haven't been revealed yet
+        for (let i = 0; i < word.length; i++) {
+            if (word[i] !== ' ' && !this.revealedLetters.includes(i)) {
+                availablePositions.push(i);
+            }
+        }
+
+        // If there are positions to reveal, pick one randomly
+        if (availablePositions.length > 0) {
+            const randomIndex = Math.floor(Math.random() * availablePositions.length);
+            const positionToReveal = availablePositions[randomIndex];
+            this.revealedLetters.push(positionToReveal);
+            this.updateLetterHint();
+        }
     }
 
-    showSecondLetterHint() {
-        const hint = this.createLetterHint(2);
-        this.letterHint.innerHTML = `💡 ${hint}`;
-        this.letterHint.className = 'letter-hint show';
-    }
-
-    createLetterHint(numLetters) {
+    updateLetterHint() {
         const word = this.secretWord.toLowerCase();
         let hint = '';
 
         for (let i = 0; i < word.length; i++) {
             if (word[i] === ' ') {
                 hint += '&nbsp;&nbsp;';
-            } else if (i < numLetters) {
+            } else if (this.revealedLetters.includes(i)) {
                 hint += word[i].toUpperCase();
             } else {
                 hint += '_';
             }
         }
 
-        return hint;
+        this.letterHint.innerHTML = `💡 ${hint}`;
+        this.letterHint.className = 'letter-hint show';
     }
 
     submitGuess() {

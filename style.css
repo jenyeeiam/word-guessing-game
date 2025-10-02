@@ -25,13 +25,13 @@ body {
 }
 
 .screen {
-    padding: 40px 30px;
+    padding: 30px 20px;
     text-align: center;
     display: none;
-    min-height: 500px;
+    min-height: 400px;
     flex-direction: column;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .screen.active {
@@ -47,7 +47,7 @@ h1 {
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     text-align: left;
 }
 
@@ -58,9 +58,9 @@ label {
 }
 
 input[type="text"] {
-    padding: 15px;
+    padding: 12px;
     border: 2px solid #f4d35e;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 16px;
     transition: border-color 0.3s ease;
     outline: none;
@@ -73,15 +73,15 @@ input[type="text"]:focus {
 }
 
 .btn {
-    padding: 18px 30px;
-    font-size: 18px;
+    padding: 14px 25px;
+    font-size: 16px;
     font-weight: 600;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     outline: none;
-    min-height: 56px;
+    min-height: 48px;
 }
 
 .btn.primary {
@@ -100,26 +100,26 @@ input[type="text"]:focus {
 }
 
 .emoji-display {
-    font-size: 80px;
-    line-height: 1.2;
-    margin: 20px 0;
-    min-height: 100px;
+    font-size: 60px;
+    line-height: 1.1;
+    margin: 10px 0;
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .timer {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: bold;
     color: #f95738;
     background: white;
     border: 3px solid #f95738;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,15 +157,15 @@ input[type="text"]:focus {
 }
 
 .letter-hint {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: #0d3b66;
     background: white;
-    padding: 12px 20px;
-    border-radius: 10px;
+    padding: 8px 15px;
+    border-radius: 8px;
     border: 2px solid #f4d35e;
-    margin: 10px 0;
-    letter-spacing: 2px;
+    margin: 8px 0;
+    letter-spacing: 1px;
     font-family: 'Courier New', monospace;
     opacity: 0;
     transform: translateY(-10px);
@@ -178,11 +178,11 @@ input[type="text"]:focus {
 }
 
 .feedback {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #0d3b66;
-    margin: 10px 0;
-    min-height: 24px;
+    margin: 8px 0;
+    min-height: 20px;
     transition: all 0.3s ease;
 }
 
@@ -201,39 +201,67 @@ input[type="text"]:focus {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
     .container {
-        margin: 10px;
+        margin: 5px;
         border-radius: 15px;
+        max-height: 90vh;
     }
 
     .screen {
-        padding: 30px 20px;
-        min-height: 400px;
+        padding: 20px 15px;
+        min-height: auto;
+        gap: 12px;
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 5px;
     }
 
     .emoji-display {
-        font-size: 60px;
-        min-height: 80px;
+        font-size: 48px;
+        min-height: 60px;
+        margin: 5px 0;
     }
 
     .timer {
-        font-size: 36px;
-        width: 80px;
-        height: 80px;
+        font-size: 28px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .letter-hint {
+        font-size: 14px;
+        padding: 6px 12px;
+        margin: 5px 0;
+    }
+
+    .feedback {
+        font-size: 12px;
+        margin: 5px 0;
+        min-height: 18px;
+    }
+
+    .input-group {
+        gap: 5px;
     }
 
     input[type="text"] {
-        padding: 12px;
+        padding: 10px;
         font-size: 16px;
     }
 
     .btn {
-        padding: 15px 25px;
-        font-size: 16px;
-        min-height: 50px;
+        padding: 12px 20px;
+        font-size: 15px;
+        min-height: 44px;
+    }
+
+    #resultMessage {
+        font-size: 20px;
     }
 }
